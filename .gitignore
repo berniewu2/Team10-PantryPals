@@ -1,0 +1,20 @@
+# Ignore system files
+.vscode/
+
+# Ignore compile-time files
+.gradle/
+build/
+bin/
+lib/
+
+# Never include API key contents to public
+key.txt
+*.properties
+*.list
+!src/test/lists/*.list
+*.mp3
+*.wav
+
+accounts.csv
+savedLogin.csv
+*.html
