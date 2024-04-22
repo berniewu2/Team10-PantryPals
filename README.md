@@ -1,4 +1,4 @@
-# Team 1 PantryPal Instructions
+# Team 10 Potential Project from Xavier's Pantry Pals
 
 
 ## Requirements: !!!
