@@ -37,13 +37,6 @@
     - Estimate: 6 hours
       - People that have set up webservers using github pages say its easy 
 
- - Setup up the Github repo
-     - Priority: High
-        - We need access to the repo before we can start working
-     - Estimate: 2 hours
-        - Only need to share access and set up/verify CI/CD pipeline
-
-
 ### Frontend
  - Convert each JavaFX file into a web app language
    - Priority: High
@@ -51,6 +44,12 @@
     - Estimate: 20 hours
       - We think this will take a long time as some frontend people are not familiar with web development.
 
+### Testing
+ - Setup up the Github repo
+     - Priority: High
+        - We need access to the repo before we can start working
+     - Estimate: 2 hours
+        - Only need to share access and set up/verify CI/CD pipeline
 
 ## Current Overall Plan
  - Milestone 1: Refatoring

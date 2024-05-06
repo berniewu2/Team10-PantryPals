@@ -1,6 +1,10 @@
 name: Java CI
 
-on: [push]
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
     contents: read
@@ -19,6 +23,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
+          cache: gradle
 
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
