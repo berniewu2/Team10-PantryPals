@@ -51,6 +51,12 @@
      - Estimate: 2 hours
         - Only need to share access and set up/verify CI/CD pipeline
 
+
+## Sequencing Information
+![Sequencing Information](https://github.com/CSE112-Team-10/Team10-PantryPals/blob/main/src/main/java/View/images/Sequencing-information-wk5.png "Sequencing Information")
+
+Our primary focus this week was to finilize which project we are working on and discuss the specific tasks and features we will implement. 
+
 ## Current Overall Plan
  - Milestone 1: Refatoring
    - Update original repository from a JavaFX app to a web app
