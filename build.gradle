@@ -6,12 +6,12 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
 javafx {
-    version = '21.0.1'
+    version = '18.0.1'
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
