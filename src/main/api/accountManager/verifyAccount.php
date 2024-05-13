@@ -31,13 +31,26 @@ if($result->num_rows > 0) {
     $user_hash_password = $row["password"];
 } else {
     echo "User does not exist";
+    exit();
 }
 
 if(password_verify($user_password, $user_hash_password)) {
     echo "User verified";
 } else {
     echo "Invalid password";
+    exit();
 }
+
+//Once user successfully verifies, it adds that user to the current user database.
+$url = "http://team10.c1.is/api/accountManager/setCurrentUser.php?user_id=$user_id&password=$user_hash_password";
+$request = array (
+    'http' => array (
+        'method' => 'GET',
+        'header' => 'ContentType: application/json'
+    )
+);
+$context = stream_context_create($request);
+$response = file_get_contents($url, false, $context);
 
 $connection->close();
 ?>
