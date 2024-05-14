@@ -1,4 +1,4 @@
-# Workplan 05/06/2024
+# Workplan 05/13/2024
 
 
 ## Sprint Structure
@@ -25,16 +25,32 @@
 
 
 ## User Stories
-Remain the same as we all had midterms last week and did not anticipate finishing all of them in the last sprint.
+Did not complete fully so these remain the same.
 - As a developer, I want to refactor the app to a web app so that it is more accessible for users
 - As a user, I want the app to be a web app so that I can access the account across all my devices
   - Essentially same story but from two perspectives
 
+New:
+- As a chef(user), I want to be able to add specifications to the recipe so that I can further tailor the resulting recipe to suit my needs
+- As a user, I want the app to be intuitive and simple to use so that I can fulfill my needs of finding and using a recipe easily.
 
 ## Tasks
 ### Backend
 TODO:
- - Set up a webserver (using github pages)
+ - Set up a AWS webserver 
+   - Priority: med
+     - We want to switch from Googiehost to AWS so that we can use the Java files of the project instead of refactoring to PHP.
+    - Estimate: 3 hours
+      - One team member (Karl) has experience with AWS
+
+ - Allow for more inputs (add more ChatGPT prompts)
+    - Priority: High
+        - We want to give users the ability to add further specifications to their recipe so they can better tailor the recipe to suit their needs
+    - Estimate: 4 hours
+        - One team member (Matthew) also worked on the app so he know how to modify the prompt.
+
+DONE: 
+- Set up a webserver (using github pages)
    - Priority: High
      - We need webserver to host the app so it is the highest priority
     - Estimate: 6 hours
@@ -42,18 +58,22 @@ TODO:
 
 ### Frontend
 TODO:
- - Convert each JavaFX file into a web app language
+ - FInish converting each JavaFX file into a web app language
    - Priority: High
      - We need the files in a web app language and not JavaFX so that we can host it on GitHub pages.
-    - Estimate: 20 hours
-      - We think this will take a long time as some frontend people are not familiar with web development.
+    - Estimate: 5 hours
+      - Most of the files have been completed, it's just few that have not.
     - Subtasks:
-      - Convert JavaFX UI to HTML/CSS
-      - Convert JavaFX Event Handlers to JavaScript
-      - Create a JavaScript Controller
-      - Create a JavaScript Model
+      - Convert JavaFX UI to React
+
+ - Start implementing design decisions (Color palette, page layout/interaction)
+    - Priority: Med
+        - Not necessary for the app to function but still important to the app
+    - Estimate: 10 hours
+        - Will be ongoing task for entire milestone
 
 ### Testing
+No new tasks as no new features added. Additionally, React view file not fully implemented yet.
 TODO:
  - Assist other teams with their tasks
  - Priority: Low
@@ -68,9 +88,9 @@ DONE:
 
 
 ## Sequencing Information
-![Sequencing Information](https://github.com/CSE112-Team-10/Team10-PantryPals/blob/main/src/main/java/View/images/Sequencing-information-wk5.png "Sequencing Information")
+![Sequencing Information](https://github.com/CSE112-Team-10/Team10-PantryPals/blob/main/workplans/Sequencing-information-wk7.png "Sequencing Information")
 
-Our primary focus this week was to finilize which project we are working on and discuss the specific tasks and features we will implement. 
+Our primary focus this week is to finish refactoring from JavaFX to React and to start implementing new features.
 
 ## Current Overall Plan
  - Milestone 1: Refatoring
