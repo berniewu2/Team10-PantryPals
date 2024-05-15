@@ -1,10 +1,12 @@
 # ADR 1: Adoption of React for Frontend Refactoring
 
-## Created By: Ethan
-## Date: May 9
-## Decision Maker: Jett, Bernie
-## Stakeholders: Team 10
-## Status: Accepted
+**Created By:** Ethan
+
+**Decision Maker:** Jett, Bernie
+
+**Stakeholders:** Team 10
+
+**Status:** Accepted
 
 ## Context
 Our current Java application utilizes JavaFX for the frontend, providing a desktop-based user interface. However, in order to increase accessibility, there is a need to refactor our desktop app into a web app. This transition necessitates the selection of an appropriate frontend framework.
