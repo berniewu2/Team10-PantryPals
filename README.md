@@ -1,7 +1,7 @@
-# Team 10 Potential Project from Xavier's Pantry Pals
+# Team 10 Project *Pantry Pals*
 
 
-## Requirements: !!!
+## Requirements:
 
  Please create a file called `key.txt` in the root folder, and fill it with *only* your ChatGPT API Key.
 
