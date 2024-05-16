@@ -16,6 +16,10 @@ function HomePage() {
   const [login, setLogin] = useState(['', '']);
   const navigate = useNavigate();
 
+  const navigateTo = (page) => {
+    setCurrentPage(page);
+  };
+
   function handleLogoutClick() {
     navigate(basepath);
   }
