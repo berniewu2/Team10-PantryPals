@@ -39,11 +39,27 @@ const VoiceRecognition = () => {
 
   return (
     <Flex align='center' justify='center' width='full' height='full'>
-      <Button onClick={startListening}>Start Listening</Button>
-      <Button onClick={stopListening}>Stop Listening</Button>
-      <Button onClick={resetTranscript}>Reset</Button>
-      <Text>Microphone: {listening ? 'on' : 'off'}</Text>
-      <Text>{transcript}</Text>
+      <Container maxWidth='300px'>
+        <Stack>
+          <Stack direction='row' justify='center'>
+            <Button size='sm' onClick={startListening}>
+              Start Listening
+            </Button>
+            <Button size='sm' onClick={stopListening}>
+              Stop Listening
+            </Button>
+          </Stack>
+          <Button colorScheme='red' size='sm' onClick={resetTranscript}>
+            Reset
+          </Button>
+          <Text align='center' fontSize='14px' fontWeight={600}>
+            Microphone: {listening ? 'on' : 'off'}
+          </Text>
+          <Text align='center' fontSize='14px' fontWeight={600}>
+            {transcript}
+          </Text>
+        </Stack>
+      </Container>
     </Flex>
   );
 };
