@@ -11,8 +11,8 @@ import {
 } from '@chakra-ui/react';
 
 function LoginPage() {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [login, setLogin] = useState(['', '']);
   const navigate = useNavigate();
 

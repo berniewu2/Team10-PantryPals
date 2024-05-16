@@ -43,8 +43,8 @@ function HomePage() {
           <Sidebar />
         </Flex>
         <Box width='100%' height='full' padding='16px 16px 16px 0px'>
-          {/* <WelcomePage /> */}
-          <VoiceRecognition></VoiceRecognition>
+          <WelcomePage />
+          {/* <VoiceRecognition></VoiceRecognition> */}
         </Box>
       </HStack>
     </Flex>
