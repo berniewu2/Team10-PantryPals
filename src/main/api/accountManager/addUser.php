@@ -14,7 +14,6 @@ if(!(isset($_GET["user_id"]) && isset($_GET["password"]))) {
 //Grab user and password from url.
 $user_id = $_GET["user_id"];
 $user_password = $_GET['password'];
-$user_hash_password = password_hash($user_password, PASSWORD_DEFAULT);
 
 //Establish database connection.
 $connection = new mysqli($hostname, $username, $password, $database);
@@ -39,18 +38,23 @@ $sql = "SELECT user_id FROM account WHERE user_id = '$user_id'";
 $result = $connection->query($sql);
 
 if($result->num_rows > 0) {
-    echo "User ID already exists";
+    echo "-1";
     exit();
 }
 
 //Insert user_id and password into the database.
-$sql = "INSERT INTO account (user_id, password) VALUES ('$user_id', '$user_hash_password')";
+$sql = "INSERT INTO account (user_id, password) VALUES ('$user_id', '$user_password')";
 
 if ($connection->query($sql) === TRUE) {
-    echo "Account created successfully";
+    $sql = "SELECT id FROM account WHERE user_id = '$user_id'";
+    $result = $connection->query($sql);
+    $row = $result->fetch_assoc();
+    $unique_id = $row["id"];
+    echo $unique_id;
 } else {
     echo "Error inserting data: " . $connection->error . "\n";
 }
 
 $connection->close();
+
 ?>
