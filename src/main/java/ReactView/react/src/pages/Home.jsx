@@ -1,31 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Flex,
-  Container,
-  Stack,
-  Text,
-  Input,
-  Checkbox,
-  Button,
-} from '@chakra-ui/react';
+import { Box, HStack, Flex, Button } from '@chakra-ui/react';
+import WelcomePage from '../components/WelcomePage';
+import VoiceRecognition from '../voiceRecognition';
+import Sidebar from '../components/Sidebar';
+
+const basepath = import.meta.env.BASE_URL;
 
 function HomePage() {
+  const [recording, setRecording] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState('WelcomePage');
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [login, setLogin] = useState(['', '']);
   const navigate = useNavigate();
 
-  function handleLoginClick() {
-    handleSubmit();
-    /*Additional Login logic here*/
-    navigate('/home');
-  }
-
-  function handleCreateAccountClick() {
-    handleSubmit();
-    /*Additional Create Account logic here*/
-    navigate('/home');
+  function handleLogoutClick() {
+    navigate(basepath);
   }
 
   const handleSubmit = (event) => {
@@ -36,45 +28,25 @@ function HomePage() {
 
   return (
     <Flex width='100vw' height='100vh' align='center' justify='center'>
-      <Container style={{ maxWidth: '300px' }}>
-        <Stack spacing={2}>
-          <Text align='center' fontSize='20px' fontWeight={600}>
-            HOMEPAGE
-          </Text>
-          <Input
-            variant='filled'
-            placeholder='Username'
-            size='sm'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Input
-            variant='filled'
-            placeholder='Password'
-            size='sm'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Stack direction='row' justify='center'>
-            <Button
-              flex='3'
-              size='sm'
-              colorScheme='blue'
-              isDisabled={!username || !password}
-              onClick={handleSubmit}>
-              Login
-            </Button>
-            <Button
-              flex='5'
-              size='sm'
-              colorScheme='green'
-              isDisabled={!username || !password}
-              onClick={handleSubmit}>
-              Create Account
-            </Button>
-          </Stack>
-        </Stack>
-      </Container>
+      <Button
+        p={2}
+        position='absolute'
+        top='15px'
+        right='15px'
+        size='sm'
+        colorScheme='blue'
+        onClick={handleLogoutClick}>
+        Logout
+      </Button>
+      <HStack width='full' height='full' spacing={0}>
+        <Flex minWidth='300px' height='full' p={4} padding='16px 0px 16px 16px'>
+          <Sidebar />
+        </Flex>
+        <Box width='100%' height='full' padding='16px 16px 16px 0px'>
+          {/* <WelcomePage /> */}
+          <VoiceRecognition></VoiceRecognition>
+        </Box>
+      </HStack>
     </Flex>
   );
 }

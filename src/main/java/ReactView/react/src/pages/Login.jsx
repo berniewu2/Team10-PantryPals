@@ -9,8 +9,6 @@ import {
   Checkbox,
   Button,
 } from '@chakra-ui/react';
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
 
 function LoginPage() {
   const [username, setUsername] = useState(null);
@@ -30,8 +28,8 @@ function LoginPage() {
     navigate('/home');
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     setUsername('');
     setPassword('');
   };
