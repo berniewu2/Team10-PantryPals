@@ -1,4 +1,4 @@
-# Title: ADR 002: Adoption of PHP and GoogieHost for Backend Server
+# ADR 2: Adoption of PHP and GoogieHost for Backend Server
 
 **Created By:** Matthew
 
