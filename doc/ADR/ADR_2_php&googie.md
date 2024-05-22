@@ -18,9 +18,9 @@ We have decided to use PHP as our backend programming language and GoogieHost as
 
 ## Consequences:
 - Reduced Complexity: PHP's ease of use and GoogieHost's user-friendly interface will reduce the complexity of backend development and server management, allowing our team to focus more on application features and improvements.
-Cost Savings: By using GoogieHost, a free cloud hosting provider, we will significantly reduce our hosting costs compared to AWS, providing a cost-effective solution for our backend needs.
+- Cost Savings: By using GoogieHost, a free cloud hosting provider, we will significantly reduce our hosting costs compared to AWS, providing a cost-effective solution for our backend needs.
 - Improved Stability: GoogieHost's simplified hosting environment is expected to offer greater stability, reducing the frequency of deployment errors and runtime issues experienced with AWS.
 - Learning Curve: Transitioning to PHP may require some initial learning and adjustment for team members who are not familiar with it. However, PHP's widespread use and extensive documentation should facilitate this process.
-Scalability Considerations: While GoogieHost provides an immediate solution, we need to monitor its scalability and performance as our application grows. Future considerations may include moving to a more robust hosting solution if required.
+- Scalability Considerations: While GoogieHost provides an immediate solution, we need to monitor its scalability and performance as our application grows. Future considerations may include moving to a more robust hosting solution if required.
 
 Overall, adopting PHP and GoogieHost for our backend server aligns with our objective to simplify backend operations, reduce costs, and improve application stability. This decision will enable our team to deliver a more reliable and maintainable application.
