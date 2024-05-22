@@ -14,7 +14,7 @@
 Our application currently relies on AWS for backend server hosting. However, we have encountered significant complexity and persistent errors when deploying and managing the application on AWS. These issues have led to increased development time, higher maintenance efforts, and challenges in ensuring a stable environment. To streamline our backend operations, we need to consider alternative solutions that are easier to manage and maintain.
 
 ## Decision:
-We have decided to use PHP as our backend programming language and GoogieHost as our hosting provider. PHP offers simplicity and ease of use for web development, while GoogieHost provides a free, straightforward cloud server solution that meets our hosting needs without the complexities associated with AWS.
+We are thinking to use PHP as our backend programming language and GoogieHost as our hosting provider. PHP offers simplicity and ease of use for web development, while GoogieHost provides a free, straightforward cloud server solution that meets our hosting needs without the complexities associated with AWS.
 
 ## Consequences:
 - Reduced Complexity: PHP's ease of use and GoogieHost's user-friendly interface will reduce the complexity of backend development and server management, allowing our team to focus more on application features and improvements.
