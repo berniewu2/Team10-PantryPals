@@ -52,5 +52,5 @@ test {
 }
 
 application {
-    mainClassName = "View.App"
+    mainClassName = "Model.StartServer"
 }
