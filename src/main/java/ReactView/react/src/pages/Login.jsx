@@ -10,16 +10,26 @@ import {
   Button,
 } from '@chakra-ui/react';
 
+import { AccountManager } from '../components/AccountManager.js';
+
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [login, setLogin] = useState(['', '']);
   const navigate = useNavigate();
 
-  function handleLoginClick(e) {
+  async function handleLoginClick(e) {
     handleSubmit(e);
-    /*Additional Login logic here*/
-    navigate('/home');
+    try {
+      const result = await AccountManager({ method: 'verify', username:username, password:password});
+
+      if (result == '\"1\"') {
+        navigate('/home');
+      }
+      
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   }
 
   function handleCreateAccountClick(e) {
