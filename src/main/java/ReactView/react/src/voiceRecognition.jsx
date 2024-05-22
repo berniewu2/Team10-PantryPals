@@ -1,5 +1,8 @@
 import 'regenerator-runtime';
 
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+
 import SpeechRecognition, {
   useSpeechRecognition,
 } from 'react-speech-recognition';
@@ -21,7 +24,8 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-const VoiceRecognition = () => {
+const VoiceRecognition = (props) => {
+  const { onNavigate } = props;
   const {
     transcript,
     listening,
@@ -37,6 +41,8 @@ const VoiceRecognition = () => {
     SpeechRecognition.startListening({ continuous: true });
   const stopListening = () => SpeechRecognition.stopListening();
 
+  const navigate = useNavigate()
+
   return (
     <Flex align='center' justify='center' width='full' height='full'>
       <Container maxWidth='300px'>
@@ -49,6 +55,9 @@ const VoiceRecognition = () => {
               Stop Listening
             </Button>
           </Stack>
+          <Button colorScheme='green' size='sm' onClick={() => onNavigate('NewRecipe')}>
+            Generate
+          </Button>
           <Button colorScheme='red' size='sm' onClick={resetTranscript}>
             Reset
           </Button>
@@ -63,5 +72,23 @@ const VoiceRecognition = () => {
     </Flex>
   );
 };
+
+function Welcome(props) {
+  const { onNavigate } = props;
+  return (
+    <Flex align='center' justify='center' width='full' height='full'>
+      <Container maxWidth='300px'>
+        <Stack spacing={2}>
+          <Button
+            colorScheme='blue'
+            size='sm'
+            onClick={() => onNavigate('MealTypeSelect')}>
+            Generate New Recipe
+          </Button>
+        </Stack>
+      </Container>
+    </Flex>
+  );
+}
 
 export default VoiceRecognition;
