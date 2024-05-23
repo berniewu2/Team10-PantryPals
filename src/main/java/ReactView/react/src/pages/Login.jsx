@@ -10,7 +10,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-import { AccountManager } from '../components/AccountManager.js';
+import { AccountManager } from '../api/AccountManager.js';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -26,16 +26,22 @@ function LoginPage() {
       if (result == '\"1\"') {
         navigate('/home');
       }
-      
     } catch (error) {
       console.error('Login failed:', error);
     }
   }
 
-  function handleCreateAccountClick(e) {
+  async function handleCreateAccountClick(e) {
     handleSubmit(e);
-    /*Additional Create Account logic here*/
-    navigate('/home');
+    try {
+      const result = await AccountManager({ method: 'addUser', username:username, password:password});
+
+      if (result != '\"-1\"') {
+        navigate('/home');
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   }
 
   const handleSubmit = (event) => {
