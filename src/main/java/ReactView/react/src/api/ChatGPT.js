@@ -1,19 +1,19 @@
 export async function ChatGPT({meal_type, ingredients, number_of_serving, difficulty, cook_time, cuisine}) {
-    const url = `https://az3u50k7ec.execute-api.us-east-2.amazonaws.com/${method}`;
-    const options = {
-      method: method === 'deleteUser' ? 'DELETE' : 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(
-        method === 'deleteUser' ? { id:id } : { username:username, password:password }
-      ),
-    };
-  
+    const url = `https://kdtphck5le.execute-api.us-east-1.amazonaws.com/dev?meal_type=${meal_type}&ingredients=${ingredients}&number_of_serving=${number_of_serving}&difficulty=${difficulty}&cook_time=${cook_time}&cuisine=${cuisine}`;
+    
     try {
-      const response = await fetch(url, options);
-      const data = await response.text();
-      return data;
+      const response = await fetch(url);
+      const data = await response.json();
+      const parts = data.split('\n\n');
+      const title = parts[0];
+      const ingredient = parts[1].split('\n');
+      const instruction = parts[2].split('\n');
+      const recipe = {
+          title: title,
+          ingredient: ingredient,
+          instruction: instruction
+      };
+      return recipe;
     } catch (error) {
       console.error('Error:', error);
       throw error;

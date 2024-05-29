@@ -6,17 +6,23 @@ import MealTypeSelectPage from '../components/MealTypeSelectPage';
 import VoiceRecognition from '../voiceRecognition';
 import Sidebar from '../components/Sidebar';
 import NewRecipe from '../components/NewRecipe';
+import { ChatGPT } from '../api/ChatGPT';
 
 const basepath = import.meta.env.BASE_URL;
 
 function HomePage() {
   const [recording, setRecording] = useState(false);
-
   const [currentPage, setCurrentPage] = useState('home');
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [login, setLogin] = useState(['', '']);
   const navigate = useNavigate();
+  const [meal_type, set_meal_type] = useState('');
+  const [ingredients, set_ingredients] = useState('');
+  const [number_of_serving, set_number_of_servering] = useState('');
+  const [difficulty, set_difficulty] = useState('');
+  const [cook_time, set_cook_time] = useState('');
+  const [cuisine, set_cuisine] = useState('');
 
   const navigateTo = (page) => {
     setCurrentPage(page);
@@ -27,11 +33,11 @@ function HomePage() {
       case 'home':
         return <WelcomePage onNavigate={navigateTo} />;
       case 'MealTypeSelect':
-        return <MealTypeSelectPage onNavigate={navigateTo} />;
+        return <MealTypeSelectPage onNavigate={navigateTo} set_meal_type={set_meal_type}/>;
       case 'VoiceRecognition':
-        return <VoiceRecognition onNavigate={navigateTo} />;
+        return <VoiceRecognition onNavigate={navigateTo} set_ingredients={set_ingredients} />;
       case 'NewRecipe':
-        return <NewRecipe onNavigate={navigateTo} />;
+        return <NewRecipe onNavigate={navigateTo} recipe={handleRecipeGeneration()} />;
       default:
         return <HomePage onNavigate={navigateTo} />;
     }
@@ -47,6 +53,19 @@ function HomePage() {
       setCurrentPage('MealTypeSelect');
     else if (currentPage == 'NewRecipe')
       setCurrentPage('VoiceRecognition');
+  }
+
+  async function handleRecipeGeneration() {
+    const result = await ChatGPT({ 
+      meal_type: meal_type, 
+      ingredients: ingredients, 
+      number_of_serving: number_of_serving,
+      difficulty: difficulty,
+      cook_time: cook_time,
+      cuisine: cuisine 
+    });
+    
+    return result;
   }
 
   const handleSubmit = (event) => {
