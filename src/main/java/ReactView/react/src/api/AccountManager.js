@@ -1,4 +1,4 @@
-export async function AccountManager({ method, username, password, id }) {
+export async function AccountManager({ method, username, password, id }={}) {
     const url = `https://az3u50k7ec.execute-api.us-east-2.amazonaws.com/${method}`;
     const options = {
       method: method === 'deleteUser' ? 'DELETE' : 'POST',
