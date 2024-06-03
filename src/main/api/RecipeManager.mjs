@@ -6,6 +6,7 @@ import {
   GetCommand,
   DeleteCommand,
   QueryCommand,
+  UpdateCommand,
 } from "@aws-sdk/lib-dynamodb";
 
 import { randomUUID } from 'crypto'; 
@@ -22,6 +23,7 @@ export const handler = async (event, context) => {
   let putResult;
   let deleteResult;
   let queryResult;
+  let updateResult;
   const headers = {
     "Content-Type": "application/json",
   };
@@ -139,36 +141,14 @@ export const handler = async (event, context) => {
           })
         );
         
-        if (queryResult.$metadata.httpStatusCode === 200 & queryResult.Items.length > 0) {
+        if (queryResult.$metadata.httpStatusCode === 200 & queryResult.Items.length > 0 && queryResult.Items[0]['password'] === requestJSON.password) {
           body = queryResult.Items;
         } else {
           body = '-1';
         }
         
         break;
-          case "POST /getRecipe":
-        requestJSON = JSON.parse(event.body);
-        
-        /* Given a recipeId, find the recipe 
-         * with that ID
-         */
-        queryResult = await dynamo.send(
-          new QueryCommand({
-            TableName: tableName,
-            KeyConditionExpression: 'recipeId = :recipeId',
-            ExpressionAttributeValues: { ':recipeId': requestJSON.recipeId },
-          })
-        );
-        
-        if (queryResult.$metadata.httpStatusCode === 200 & queryResult.Items.length > 0) {
-          body = queryResult.Items;
-        } else {
-          body = '-1';
-        }
-        
-        break;
-
-        case "POST /updateRecipe":
+      case "POST /updateRecipe":
             requestJSON = JSON.parse(event.body);
             
             /* Given a recipeId, find the recipe 
