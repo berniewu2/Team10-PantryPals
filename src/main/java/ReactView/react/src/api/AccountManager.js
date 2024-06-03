@@ -9,7 +9,7 @@ export async function AccountManager({ method, username, password, id }) {
         method === 'deleteUser' ? { id:id } : { username:username, password:password }
       ),
     };
-  
+
     try {
       const response = await fetch(url, options);
       const data = await response.text();
