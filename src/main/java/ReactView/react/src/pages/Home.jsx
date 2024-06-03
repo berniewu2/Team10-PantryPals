@@ -6,7 +6,6 @@ import MealTypeSelectPage from '../components/MealTypeSelectPage';
 import VoiceRecognition from '../voiceRecognition';
 import Sidebar from '../components/Sidebar';
 import NewRecipe from '../components/NewRecipe';
-import { ChatGPT } from '../api/ChatGPT';
 
 const basepath = import.meta.env.BASE_URL;
 
@@ -35,9 +34,9 @@ function HomePage() {
       case 'MealTypeSelect':
         return <MealTypeSelectPage onNavigate={navigateTo} set_meal_type={set_meal_type}/>;
       case 'VoiceRecognition':
-        return <VoiceRecognition onNavigate={navigateTo} set_ingredients={set_ingredients} />;
+        return <VoiceRecognition onNavigate={navigateTo} set_ingredients={set_ingredients}/>;
       case 'NewRecipe':
-        return <NewRecipe onNavigate={navigateTo} recipe={handleRecipeGeneration()} />;
+        return <NewRecipe onNavigate={navigateTo} meal_type={meal_type} ingredients={ingredients} number_of_serving={number_of_serving} difficulty={difficulty} cook_time={cook_time} cuisine={cuisine}/>;
       default:
         return <HomePage onNavigate={navigateTo} />;
     }
@@ -53,19 +52,6 @@ function HomePage() {
       setCurrentPage('MealTypeSelect');
     else if (currentPage == 'NewRecipe')
       setCurrentPage('VoiceRecognition');
-  }
-
-  async function handleRecipeGeneration() {
-    const result = await ChatGPT({ 
-      meal_type: meal_type, 
-      ingredients: ingredients, 
-      number_of_serving: number_of_serving,
-      difficulty: difficulty,
-      cook_time: cook_time,
-      cuisine: cuisine 
-    });
-    
-    return result;
   }
 
   const handleSubmit = (event) => {

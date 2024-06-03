@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/react';
 
 const VoiceRecognition = (props) => {
-  const { onNavigate, set_ingredients } = props;
+  const { onNavigate, set_ingredients} = props;
   const {
     transcript,
     listening,
@@ -57,7 +57,7 @@ const VoiceRecognition = (props) => {
           </Stack>
           <Button colorScheme='green' size='sm' 
             onClick={() => {
-              set_ingredients(transcript) 
+              set_ingredients(transcript)
               onNavigate('NewRecipe')
             }}>
             Generate
