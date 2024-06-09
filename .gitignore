@@ -3,7 +3,6 @@
 
 # Ignore compile-time files
 .gradle/
-build/
 bin/
 lib/
 
